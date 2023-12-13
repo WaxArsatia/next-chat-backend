@@ -1,0 +1,17 @@
+{
+  "name": "next-chat-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "socket.io": "^4.7.2",
+    "uWebSockets.js": "github:uNetworking/uWebSockets.js#v20.34.0"
+  }
+}
