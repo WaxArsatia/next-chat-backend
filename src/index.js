@@ -1,8 +1,11 @@
+import "dotenv/config";
 import { App } from "uWebSockets.js";
 import { Server } from "socket.io";
 
+const { CORS_ORIGIN, LISTEN_PORT } = process.env;
+
 const app = App();
-const io = new Server({ cors: { origin: "*" } });
+const io = new Server({ cors: { origin: CORS_ORIGIN } });
 
 io.attachApp(app);
 
@@ -13,10 +16,10 @@ io.on("connection", (socket) => {
   });
 });
 
-app.listen(3001, (token) => {
+app.listen(Number(LISTEN_PORT), (token) => {
   if (token) {
-    console.log("Listening to port " + 3001);
+    console.log("Listening to port " + LISTEN_PORT);
   } else {
-    console.log("Failed to listen to port " + 3001);
+    console.log("Failed to listen to port " + LISTEN_PORT);
   }
 });
